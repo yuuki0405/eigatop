@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>映画推薦システム</title>
+</head>
+<body>
+    <h1>好きな映画を3つ選択してください</h1>
+
+    <form action="/recommend" method="post">
+        {% for i in range(3) %}
+        <p>{{ i+1 }}つ目：</p>
+        <select name="movies">
+            <option value="">-- 選択してください --</option>
+            {% for movie in movies %}
+            <option value="{{ movie }}">{{ movie }}</option>
+            {% endfor %}
+        </select>
+        {% endfor %}
+
+        <br><br>
+        <button type="submit">オススメ映画を表示</button>
+    </form>
+</body>
+</html>
